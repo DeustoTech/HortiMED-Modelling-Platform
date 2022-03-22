@@ -8,6 +8,7 @@ classdef climate_p
         A_f = 3200; % greenhouse floor area [m^2]
         A_c = 3200;
         gamma_max = 0.3;
+        minWindows = 0.1;
         %%
         lam_s  = [2.5    0.85 ];  % thermal conductivity of soil layers [W/mK] Concrete, Soil, Clay
         c_s    = [1081   1081];   % specific heat of soil layers [J/kgK]
