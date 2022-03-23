@@ -19,14 +19,17 @@ params.minWindows = 0.01;
 cic    = climate_ic;
 %% Initializate of Windows System
 win_p = windows_p;
+%% Screen parameters
+scr_p = screen_p;
+scr_p.Radthreshold = 200;
 %% Execute model
 
-open_system('test03')
-set_param('test03','StopTime','10')
+open_system('test04')
+set_param('test04','StopTime','10')
 
 tic
 
-r = sim('test03');
+r = sim('test04');
 toc
 %% build the date span from tspan pf simulation 
 tout = r.tout;
@@ -40,10 +43,11 @@ OC_st = parseIndoorClimate(OC,tout);
 %%
 CC = r.logsout.getElement('Control Climate');
 CC_st = parseIndoorClimate(CC,tout);
-%%
-win_com = r.logsout.getElement('WindowsC');
-win_com_st = win_com.Values.Data;
+%% Windows parameters
+src_com = r.logsout.getElement('ScreenC');
+src_com_st = src_com.Values.Data;
+
 %% see results
 figure(1)
 clf
-ICplots_test03(rdate,IC_st,OC_st,CC_st,win_p,win_com_st)
+ICplots_test04(rdate,IC_st,OC_st,CC_st,win_p,scr_p,src_com_st)
