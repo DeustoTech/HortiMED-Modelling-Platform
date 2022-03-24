@@ -11,7 +11,7 @@ plot(rdate,IC_st.Temp.Tcover - Tk,sty{:})
 plot(rdate,IC_st.Temp.Tfloor - Tk,sty{:})
 plot(rdate,IC_st.Temp.Tsoil - Tk,sty{:})
 grid on
-legend('T_e','T_i','T_c','T_s')
+legend('T_e','T_i','T_c','T_f','T_s')
 subplot(2,1,2)
 hold on
 plot(rdate,OC_st.HR,sty{:})
