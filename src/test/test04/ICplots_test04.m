@@ -32,7 +32,7 @@ function ICplots(rdate,IC_st,OC_st,CC_st,win_p,scr_p,src_com_st)
     ylabel('Screen(%)')
 
 
-    plot(rdate,CC_st.Screen,sty{:},'color','k')
+    plot(rdate,CC_st.Screen.value,sty{:},'color','k')
     grid on
     legend('R_i','R_{threshold}','Screen')
 

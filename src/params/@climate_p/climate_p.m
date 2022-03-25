@@ -7,15 +7,12 @@ classdef climate_p
         H = 7; % hieght greenhouse [m]
         A_f = 3200; % greenhouse floor area [m^2]
         A_c = 3200;
-        gamma_max = 0.3;
         minWindows = 0.1;
         %%
         lam_s  = [2.5    0.85 ];  % thermal conductivity of soil layers [W/mK] Concrete, Soil, Clay
         c_s    = [1081   1081];   % specific heat of soil layers [J/kgK]
         l_s    = [0.1    0.1 ];   % thickness of soil layers [m]
         rhod_s = [2600   2500 ];  % density of soil layers [kg/m^3] alphS_s=0.5; %solar absorptance of floor [-]
-
-        AR = 15 % m^2 size of windows
 
         % AIR CHARACTERISTICS
         % ===================

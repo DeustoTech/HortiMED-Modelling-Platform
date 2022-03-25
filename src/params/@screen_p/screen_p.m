@@ -6,6 +6,8 @@ classdef screen_p
         Radthreshold = 900;
         velocity = 100/(5*60);
         Power = 100;
+        gamma_max = 0.3;
+        beta = 0.1;
     end
     
 

@@ -20,7 +20,7 @@ function ICplots(rdate,IC_st,OC_st,CC_st,win_p,win_com_st)
     ylim([-5 105])
     ylabel('Windows(%)')
 
-    plot(rdate,CC_st.Windows,sty{:},'color','k')
+    plot(rdate,CC_st.Windows.Value,sty{:},'color','k')
     grid on
     
     legend('day','T_e','T_i','T_{start}','T_{max}','Windows')
@@ -37,7 +37,7 @@ function ICplots(rdate,IC_st,OC_st,CC_st,win_p,win_com_st)
     ylim([20 100])
     ylabel('HR(%)')
     yyaxis right 
-    plot(rdate,CC_st.Windows,sty{:},'color','k')
+    plot(rdate,CC_st.Windows.Value,sty{:},'color','k')
     ylabel('Windows(%)')
     ylim([0 50])
     grid on

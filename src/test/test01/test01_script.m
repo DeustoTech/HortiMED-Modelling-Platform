@@ -17,6 +17,7 @@ params = climate_p;
 %% Initializate initial conditions of model 
 cic    = climate_ic;
 %% Execute model
+open_system('test01');
 set_param('test01','StopTime','10')
 tic
 r = sim('test01');
@@ -34,3 +35,5 @@ OC_st = parseIndoorClimate(OC,tout);
 figure(1)
 clf
 ICplots_test01(rdate,IC_st,OC_st)
+
+%%

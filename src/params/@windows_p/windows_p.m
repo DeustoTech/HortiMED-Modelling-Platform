@@ -8,6 +8,7 @@ classdef windows_p
         max_night = 10; % - HR 10%
         tau = 10*(60) % 5min -> 5*60 * sec
         RadThreshold = 10;
+        AR = 10 % m^2
     end
     
     properties (Dependent)
