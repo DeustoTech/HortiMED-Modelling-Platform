@@ -1,4 +1,4 @@
-function ICplots(rdate,IC_st,OC_st,Crop,Fruit,ds_crop,crop_p)
+function ICplots(rdate,IC_st,OC_st,CC_st,Crop,Fruit,ds_crop,crop_p)
 
     Tk = 273.15;
 
@@ -14,7 +14,12 @@ function ICplots(rdate,IC_st,OC_st,Crop,Fruit,ds_crop,crop_p)
     
     
     %%
-    
+    subplot(4,2,2)
+    hold on
+    plot(rdate,IC_st.Gas.C_c_ppm);
+    yyaxis right
+    plot(rdate,CC_st.Windows.Value)
+    %%
     subplot(4,2,3)
     hold on
     plot(rdate,Crop.Carbon.Cbuff,sty{:})
@@ -33,7 +38,19 @@ function ICplots(rdate,IC_st,OC_st,Crop,Fruit,ds_crop,crop_p)
     title('Vapor Pressure Deficit')
     ylabel('VDP[Pa]')
     grid on
-    
+    %%
+    subplot(4,2,6)
+    hold on
+    plot(rdate,IC_st.QS.R_int,sty{:})
+    plot(rdate,OC_st.Rad,sty{:})
+    yyaxis right
+    plot(rdate,CC_st.Screen.value,'color',[0.5 0.5 0.5])
+    legend('R_i','R_e','Screen')
+    title('Radiation')
+    ylabel('R[W/m^2]')
+    ylim([0 100])
+    grid on
+    %%
     subplot(4,2,7)
     plot(rdate,Crop.WaterPercent*100,sty{:})
     ylabel('%')

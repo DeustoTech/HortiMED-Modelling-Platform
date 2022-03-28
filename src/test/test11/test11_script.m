@@ -4,7 +4,8 @@ load('CS3_9_sysclima_no_heater_no_screen.mat')
 open_system('test11')
 ids.Windows = 0.5*ids.EstadoCenitalE + 0.5*ids.EstadoCenitalO;
 %%
-
+AR = 20;
+    
 %%
 %ids.Vviento = smoothdata(ids.Vviento,'gaussian','SmoothingFactor',0.15);
 old_viento = ids.Vviento;

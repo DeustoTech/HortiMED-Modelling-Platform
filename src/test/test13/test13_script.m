@@ -1,6 +1,9 @@
 clear 
 %% create exterior climate signal
-load('CS3_9_sysclima_no_heater_no_screen.mat')
+load('CS3_9_sysclima_with_heater.mat')
+load('opt_params_climate_menaka.mat')
+ids = ids_heater;
+ids = ids(1000:3000,:);
 open_system('test13')
 ids.Windows = 0.5*ids.EstadoCenitalE + 0.5*ids.EstadoCenitalO;
 %%
@@ -33,17 +36,28 @@ windows.time = tspan;
 
 %% Initializate Parametes of model 
 params = climate_p;
+%%
+heat_p = heater_p;
+heat_ic = heater_ic;
 
+heat_p.power = 250*1e3*4;
+heat_p.A_i = 1e-5;
+
+%%
+T_max_heater = 273.15 + 20;
+T_start_heater = 273.15 + 10;
+
+%%
 %%
 %% Take Temperature 
-Tinv.values = ids.Tinv;
-Tinv.tspan = tspan;
+%Tinv.values = ids.Tinv;
+%Tinv.tspan = tspan;
 
 %%
-in = Simulink.SimulationInput('test11');
+in = Simulink.SimulationInput('test13');
 %%
-set_param('test11','SimulationMode','accelerator')
-set_param('test11','StopTime',num2str(ndays))
+set_param('test13','SimulationMode','accelerator')
+set_param('test13','StopTime',num2str(ndays))
 
 %% Initializate initial conditions of model 
 cic    = climate_ic;
