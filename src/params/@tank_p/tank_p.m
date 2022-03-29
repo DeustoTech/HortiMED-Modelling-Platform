@@ -5,7 +5,8 @@ classdef tank_p
     properties
         S = 10
         h_max = 1
-        
+        Twall = 273.15 + 12;
+        wall_gain = 1;
     end
     
 end
