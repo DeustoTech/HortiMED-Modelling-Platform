@@ -1,4 +1,4 @@
-# HORTISIM
+# HortiMED Modelling Platform
 
 Simulink Library to aquaculture and horticulture
 
