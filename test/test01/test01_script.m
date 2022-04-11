@@ -1,8 +1,7 @@
+% En este test simplmente ejecutaremosel modelo 
 clear
 %% create exterior climate signal
 load('CS3_5_ExteriorClima.mat')
-%
-ods.T = ods.T;
 %
 t0 = ods.DateTime(1);
 tspan = days(ods.DateTime - t0);
@@ -13,9 +12,9 @@ climate.signals.dimensions = 4;
 climate.time = tspan;
 
 %% Initializate Parametes of model 
-params = climate_p;
+clima1var = climate_p;
 %% Initializate initial conditions of model 
-cic    = climate_ic;
+clima1ic    = climate_ic;
 %% Execute model
 open_system('test01');
 set_param('test01','StopTime','10')

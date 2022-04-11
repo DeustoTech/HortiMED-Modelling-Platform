@@ -1,17 +1,11 @@
-function ICplots(rdate,IC_st,OC_st,Crop,Fruit,ds_crop,crop_p)
+function ICplots(rdate,Crop)
 
     Tk = 273.15;
 
     sty = {'LineWidth',2};
     subplot(4,2,1)
     
-    hold on
-    plot(ds_crop.DateTime,ds_crop.MatureFruit/crop_p.A_v)
-    plot(rdate,(0.965/0.035)*Fruit,sty{:})
-    ylabel('Fresh Fruits(Kg)')
-    title('Harvest')
-    grid on
-    
+
     
     %%
     
@@ -21,7 +15,7 @@ function ICplots(rdate,IC_st,OC_st,Crop,Fruit,ds_crop,crop_p)
     plot(rdate,Crop.Carbon.Cfruit,sty{:})
     plot(rdate,Crop.Carbon.Cleaf,sty{:})
     plot(rdate,Crop.Carbon.Cstem,sty{:})
-    plot(rdate,Fruit,sty{:},'color','b')
+    %plot(rdate,Fruit,sty{:},'color','b')
 
     ylabel('C[kg/m^2]')
     grid on

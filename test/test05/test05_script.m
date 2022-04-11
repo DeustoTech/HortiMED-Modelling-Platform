@@ -60,3 +60,5 @@ heater_con =  r.logsout.getElement('HeaterCon').Values.Data;
 figure(1)
 clf
 ICplots_test05(rdate,IC_st,OC_st,heater_signal,Th,heater_con)
+%%
+ICplots_test04(rdate,IC_st,OC_st,CC_st,win_p,scr_p,src_com_st)

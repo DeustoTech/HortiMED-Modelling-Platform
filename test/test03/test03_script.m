@@ -47,3 +47,9 @@ win_com_st = win_com.Values.Data;
 figure(1)
 clf
 ICplots_test03(rdate,IC_st,OC_st,CC_st,win_p,win_com_st)
+
+%%
+main_folder = which('HORTISIM.slx');
+main_folder = replace(main_folder,'HORTISIM.slx','');
+%%
+save(fullfile(main_folder,'test','test03','test03_ws.mat'))

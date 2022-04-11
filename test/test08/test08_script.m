@@ -1,6 +1,6 @@
 clear
 %load('src/data/CS3_1_Sysclima.mat')
-load('src/data/CS3_7_all_cum_production.mat')
+load('CS3_7_all_cum_production.mat')
 
 %%
 ds_crop = new_ds_prod_2{3};
@@ -81,9 +81,13 @@ OC_st = parseIndoorClimate(OC,tout);
 %%
 CC = r.logsout.getElement('Control Climate');
 CC_st = parseIndoorClimate(CC,tout);
-%% Windows parameters
+%% Screen consumption
 src_com = r.logsout.getElement('ScreenC');
 src_com_st = src_com.Values.Data;
+%%
+%% Windows consumption
+win_com = r.logsout.getElement('WindowsC');
+win_com_st = win_com.Values.Data;
 %%
 heater_signal =  r.logsout.getElement('Heater').Values.Data;
 Th =  r.logsout.getElement('Th').Values.Data;
@@ -112,3 +116,5 @@ clf
 ICplots_test08(rdate,IC_st,OC_st,CC_st,Crop_st,Fruit,ds_crop,crop_p)
 
 %%
+fig = figure(1);
+ICplots_test03(rdate,IC_st,OC_st,CC_st,win_p,win_com_st)

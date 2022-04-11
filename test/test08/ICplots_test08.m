@@ -18,7 +18,7 @@ function ICplots(rdate,IC_st,OC_st,CC_st,Crop,Fruit,ds_crop,crop_p)
     hold on
     plot(rdate,IC_st.Gas.C_c_ppm);
     yyaxis right
-    plot(rdate,CC_st.Windows.Value)
+    plot(rdate,CC_st.Windows.value)
     %%
     subplot(4,2,3)
     hold on

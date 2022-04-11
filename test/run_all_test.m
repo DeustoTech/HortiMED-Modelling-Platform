@@ -3,7 +3,7 @@ clear
 main_path = 'HORTISIM.slx';
 main_path = which(main_path);
 main_path = replace(main_path,'HORTISIM.slx','');
-test_path = fullfile(main_path,'src','test');
+test_path = fullfile(main_path,'test');
 
 %% files 
 r = dir(test_path);

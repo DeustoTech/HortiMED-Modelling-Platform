@@ -71,4 +71,6 @@ main_folder = which('HORTISIM.slx');
 main_folder = replace(main_folder,'HORTISIM.slx','');
 %
 %%
-save(fullfile(main_folder,'src/test/test11/opt_params_climate_menaka.mat'),'climate_params','windows_params')
+save(fullfile(main_folder,'test/test11/opt_params_climate_menaka.mat'),'climate_params','windows_params')
+%%
+save(fullfile(main_folder,'test/test11/test11_ws.mat'))
