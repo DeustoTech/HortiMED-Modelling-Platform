@@ -6,6 +6,7 @@ classdef tank_ic
         h = 0.5;           
         X = zeros(8,1);
         T = 273.15 + 15;
+        Twall = 273.15 + 13;
     end
     
 end

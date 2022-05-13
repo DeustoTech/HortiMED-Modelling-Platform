@@ -8,7 +8,7 @@ function ICplots(rdate,IC_st,OC_st,CC_st,Crop,Fruit,ds_crop,crop_p)
     hold on
     plot(ds_crop.DateTime,ds_crop.MatureFruit/crop_p.A_v)
     plot(rdate,(0.965/0.035)*Fruit,sty{:})
-    ylabel('Fresh Fruits(Kg)')
+    ylabel('Fresh Fruits(Kg/m^2)')
     title('Harvest')
     grid on
     

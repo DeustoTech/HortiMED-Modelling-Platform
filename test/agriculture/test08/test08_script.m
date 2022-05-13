@@ -113,7 +113,7 @@ fig = figure(1);
 %fig.Units = 'norm';
 %fig.Position = [0 0 0.5 0.7];
 clf
-ICplots_test08(rdate,IC_st,OC_st,CC_st,Crop_st,Fruit,ds_crop,crop_p)
+ICplots_test08_b(rdate,IC_st,OC_st,CC_st,Crop_st,Fruit,ds_crop,crop_p)
 
 %%
 fig = figure(1);
