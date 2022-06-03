@@ -36,7 +36,7 @@ params.alpha_c = 1e-4;
 params.alpha_i = 1e-4;
 
 %% Initializate initial conditions of model 
-cic    = climate_ic;
+%cic    = climate_ic;
 %% Initializate of Windows System
 win_p = windows_p;
 %% Screen parameters
@@ -45,16 +45,16 @@ scr_p.Radthreshold = 1000;
 %% Initializate Heater
 heat_p = heater_p;
 heat_p.power = 1000e3;
-heat_ic = heater_ic;
+%heat_ic = heater_ic;
 %% Initializate Crop
 crop_params = crop_p;
-x0_crop = crop_ic;
+%x0_crop = crop_ic;
 %% Initializate Fruit
 params_fruit = fruit_p;
-x0_fruit =  fruit_ic;
+%x0_fruit =  fruit_ic;
 %% Initializate Substrate
 substrate_params = substrate_p;
-x0_substrate = substrate_ic;
+%x0_substrate = substrate_ic;
 %% We use a non virtual buses in flow 
 BuildBusFlow;
 %% Execute model
