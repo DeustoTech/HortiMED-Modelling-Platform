@@ -26,17 +26,17 @@ function Y = parseCrop(X,tout)
     end
     
     
-    Water = Y.("Water_WaterState_VegWater");
+    %Water = Y.("Water_WaterState_VegWater");
     
-    f_CBuff = Y.("Carbon_Cbuff")./Y.C_Total;
-    f_Cfruit = Y.("Carbon_Cfruit")./Y.C_Total;
-    f_Cleaf = Y.("Carbon_Cleaf")./Y.C_Total;
-    f_Cstem = Y.("Carbon_Cstem")./Y.C_Total;
+    %f_CBuff = Y.("Carbon_Cbuff")./Y.C_Total;
+    %f_Cfruit = Y.("Carbon_Cfruit")./Y.C_Total;
+    %f_Cleaf = Y.("Carbon_Cleaf")./Y.C_Total;
+    %f_Cstem = Y.("Carbon_Cstem")./Y.C_Total;
     
-    Y.("Water_Distribution_Cbuff")  = Water.*f_CBuff;
-    Y.("Water_Distribution_Cfruit") = Water.*f_Cfruit;
-    Y.("Water_Distribution_Cleaf")  = Water.*f_Cleaf;
-    Y.("Water_Distribution_Cstem")  = Water.*f_Cstem;
+    %Y.("Water_Distribution_Cbuff")  = Water.*f_CBuff;
+    %Y.("Water_Distribution_Cfruit") = Water.*f_Cfruit;
+    %Y.("Water_Distribution_Cleaf")  = Water.*f_Cleaf;
+    %Y.("Water_Distribution_Cstem")  = Water.*f_Cstem;
 
     % 
     for ivar = fieldnames(Y)'

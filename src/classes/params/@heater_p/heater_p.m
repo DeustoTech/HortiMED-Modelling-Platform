@@ -7,6 +7,8 @@ classdef heater_p
         A_e = 2e-5*30;
         c = 1e-8;
         power = 5e6; % W
+        T = 273 + 15;
+
     end
     
     methods

@@ -4,8 +4,9 @@ classdef fruit_p
     
     properties
 
-        fruit_Tsum = [600 1800 2000 2200 2500];
         %
+        Cfruit0 = 1e-3
+
     end
 
     methods

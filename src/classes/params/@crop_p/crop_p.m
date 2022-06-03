@@ -53,6 +53,16 @@ classdef crop_p
         T_min_v = 6 ; % between base temperature and first optimal temperature [oC]
         T_max_v = 40 ; % between second optimal temperature and maximum temperature [oC]
         
+                %
+        Tv = 273+15;
+        %
+        %   Buff Fruit Leaf Stem
+        C =[0.01   1e-3  1e-2      1e-2]
+        R = [0 0 0]
+        Tsum  = 0
+        C_wv = 0.2;
+        N = 1e-5*[0 0 0 0 0 0 0 0]';
+        
     end
 
     methods
