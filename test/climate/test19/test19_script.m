@@ -82,7 +82,7 @@ CE_st = parseIndoorClimate(CE,r.tout);
 main_folder = which('HORTISIM.slx');
 main_folder = replace(main_folder,'HORTISIM.slx','');
 %
-save(fullfile(main_folder,'test/test18/test18_ws.mat'))
+save(fullfile(main_folder,'test/climate/test18/test18_ws.mat'))
 
 
 %%

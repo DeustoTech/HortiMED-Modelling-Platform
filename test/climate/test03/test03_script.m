@@ -13,12 +13,12 @@ climate.signals.dimensions = 4;
 climate.time = tspan;
 
 %% Initializate Parametes of model 
-params = climate_p;
-params.minWindows = 0.01;
+%params = climate_p;
+%params.minWindows = 0.01;
 %% Initializate initial conditions of model 
-cic    = climate_ic;
+%cic    = climate_ic;
 %% Initializate of Windows System
-win_p = windows_p;
+%win_p = windows_p;
 %% Execute model
 
 open_system('test03')
@@ -46,6 +46,7 @@ win_com_st = win_com.Values.Data;
 %% see results
 figure(1)
 clf
+win_p = windows_p;
 ICplots_test03(rdate,IC_st,OC_st,CC_st,win_p,win_com_st)
 
 %%

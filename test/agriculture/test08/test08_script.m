@@ -60,8 +60,8 @@ BuildBusFlow;
 %% Execute model
 
 open_system('test08')
-set_param('test08','StopTime','tspan(end)')
-%set_param('test08','StopTime','5')
+%set_param('test08','StopTime','tspan(end)')
+set_param('test08','StopTime','10')
 
 set_param('test08','SimulationMode','normal')
 

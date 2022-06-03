@@ -3,7 +3,7 @@ clear
 main_path = 'HORTISIM.slx';
 main_path = which(main_path);
 main_path = replace(main_path,'HORTISIM.slx','');
-test_path = fullfile(main_path,'test');
+test_path = fullfile(main_path,"test/"+"climate");
 
 %% files 
 r = dir(test_path);
@@ -17,6 +17,7 @@ for ir = r'
             save('run_all_test_ws')
             eval(name_script)
             load('run_all_test_ws')
+            fprintf("test "+ir.name+"\n")
             try
                close(ir.name)
             catch 

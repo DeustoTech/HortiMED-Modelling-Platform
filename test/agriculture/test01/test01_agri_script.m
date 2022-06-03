@@ -28,16 +28,16 @@ heat_p = heater_p;
 heat_p.power = 1000e3;
 heat_ic = heater_ic;
 %% Initializate Heater
-crop_params = crop_p;
-x0_crop = crop_ic;
+%crop_params = crop_p;
+%x0_crop = crop_ic;
 %% Execute model
 
-open_system('test06')
-set_param('test06','StopTime','10')
-
+open_system('test01_agri')
+set_param('test01_agri','StopTime','10')
+%%
 tic
 
-r = sim('test06');
+r = sim('test01_agri');
 toc
 %% build the date span from tspan pf simulation 
 tout = r.tout;

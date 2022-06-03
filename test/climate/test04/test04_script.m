@@ -13,15 +13,15 @@ climate.signals.dimensions = 4;
 climate.time = tspan;
 
 %% Initializate Parametes of model 
-params = climate_p;
-params.minWindows = 0.01;
+%params = climate_p;
+%params.minWindows = 0.01;
 %% Initializate initial conditions of model 
-cic    = climate_ic;
+%cic    = climate_ic;
 %% Initializate of Windows System
-win_p = windows_p;
+%win_p = windows_p;
 %% Screen parameters
-scr_p = screen_p;
-scr_p.Radthreshold = 200;
+%scr_p = screen_p;
+%scr_p.Radthreshold = 200;
 %% Execute model
 
 open_system('test04')
@@ -50,4 +50,6 @@ src_com_st = src_com.Values.Data;
 %% see results
 figure(1)
 clf
+win_p = windows_p;
+scr_p = screen_p;
 ICplots_test04(rdate,IC_st,OC_st,CC_st,win_p,scr_p,src_com_st)

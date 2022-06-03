@@ -39,13 +39,11 @@ classdef climate_p
     
     
     properties (Dependent)
-      V
+      %V
    end
     methods
         
-        function value = get.V(obj)
-            value = obj.H*obj.A_f;
-        end
+
     end
 end
 

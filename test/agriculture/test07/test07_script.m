@@ -81,4 +81,6 @@ fig = figure(1);
 fig.Units = 'norm';
 fig.Position = [0 0 0.5 0.7];
 clf
-ICplots_test06(rdate,Crop_st)
+ICplots_test06(rdate,Crop_st);
+%%
+

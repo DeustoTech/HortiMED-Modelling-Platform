@@ -14,19 +14,22 @@ climate.signals.dimensions = 4;
 climate.time = tspan;
 
 %% Initializate Parametes of model 
-params = climate_p;
-params.minWindows = 0.01;
+%params = climate_p;
+%params.minWindows = 0.01;
+set_param('test05/Climate Model','minWindows','0.01')
 %% Initializate initial conditions of model 
-cic    = climate_ic;
+%cic    = climate_ic;
 %% Initializate of Windows System
-win_p = windows_p;
+%win_p = windows_p;
 %% Screen parameters
-scr_p = screen_p;
-scr_p.Radthreshold = 200;
+%scr_p = screen_p;
+set_param('test05/Control System/Screen Controler','Radthreshold','200')
 %%
-heat_p = heater_p;
-heat_p.power = 1000e3;
-heat_ic = heater_ic;
+%heat_p = heater_p;
+%heat_p.power = 1000e3;
+set_param('test05/Control System/Heating Controler','power','1000e3')
+
+%heat_ic = heater_ic;
 %% Execute model
 
 open_system('test05')
@@ -60,5 +63,9 @@ heater_con =  r.logsout.getElement('HeaterCon').Values.Data;
 figure(1)
 clf
 ICplots_test05(rdate,IC_st,OC_st,heater_signal,Th,heater_con)
+
 %%
+win_p = windows_p;
+scr_p = screen_p;
+
 ICplots_test04(rdate,IC_st,OC_st,CC_st,win_p,scr_p,src_com_st)

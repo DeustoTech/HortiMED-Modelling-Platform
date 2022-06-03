@@ -26,7 +26,7 @@ screen.signals.values = [ids.EstadoPant1];
 screen.signals.dimensions = 1;
 screen.time = tspan;
 %% Initializate Parametes of model 
-A_span = [0.1 ];
+A_span = [0.1 0.5 2.0 ];
 
 clear params;
 for i = 1:length(A_span)
@@ -43,10 +43,10 @@ clear in;
 for i = 1:length(A_span)
     in(i) = Simulink.SimulationInput('test09');
     in(i) = in(i).setBlockParameter('test09/Climate Model',...
-        'params',"params("+i+")");
+        'minWindows',"A_span(i)");
 end
 %% Initializate initial conditions of model 
-cic    = climate_ic;
+%cic    = climate_ic;
 
 %%
 set_param('test09','StopTime',num2str(ndays))

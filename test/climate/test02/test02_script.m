@@ -13,20 +13,24 @@ climate.signals.dimensions = 4;
 climate.time = tspan;
 
 %% Initializate Parametes of model 
-params = climate_p;
+%params = climate_p;
 %% Initializate initial conditions of model 
-cic    = climate_ic;
+%cic    = climate_ic;
 %% Execute model
-minWin_span = [0.01 0.1 0.2 0.9];
-
+minWin_span = [0.00 0.1 0.2 0.9];
 set_param('test02','StopTime','2')
+minWin_span = [5 10 50 100];
 
 iter = 0;
 fig = figure(1);
 clf
+set_param('test02/Climate Model','minWindows','0.1')
 for iminWin = minWin_span 
     iter = iter + 1;
-    params.minWindows = iminWin;
+    %set_param('test02/Climate Model','minWindows',num2str(iminWin))
+    set_param('test02/Climate Model','H',num2str(iminWin))
+
+    %params.minWindows = iminWin;
     tic
     r = sim('test02');
     toc

@@ -38,7 +38,7 @@ screen.signals.values = ids.EstadoPant1;
 screen.signals.dimensions = 1;
 screen.time = tspan;
 %% Initializate Parametes of model 
-params = climate_p;
+%params = climate_p;
 
 %%
 %% Take Temperature 
@@ -52,7 +52,7 @@ set_param('test12','SimulationMode','accelerator')
 set_param('test12','StopTime',num2str(ndays))
 
 %% Initializate initial conditions of model 
-cic    = climate_ic;
+%cic    = climate_ic;
 %%
 
 %%
