@@ -12,11 +12,11 @@ names = fieldnames(X.Values);
            sub_names = fieldnames(st);
            for j = sub_names'
                if isa(st.(j{:}),'timeseries')
-                    Y.((i{:})+"_"+(j{:})) = perm(st.(j{:}).Data,Nt);
+                    Y.((i{:})+"__"+(j{:})) = perm(st.(j{:}).Data,Nt);
                else
                    sub_sub_names = fieldnames(st.(j{:}));
                     for k = sub_sub_names'
-                        Y.((i{:})+"_"+(j{:})+"_"+(k{:})) = perm(st.(j{:}).(k{:}).Data,Nt);
+                        Y.((i{:})+"__"+(j{:})+"__"+(k{:})) = perm(st.(j{:}).(k{:}).Data,Nt);
                     end
                end
            end

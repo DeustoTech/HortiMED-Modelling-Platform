@@ -8,6 +8,12 @@ classdef tank_p
         wall_gain = 1;
         ThermalConductivityWall = 50;
         Tsubwall = 273.15 + 12;
+        h = 0.5;       
+             %N K Ca Mg P S O2 TSS 
+        X (8,1) = [ 1 1 1  1  1 1 10  10]';
+        T = 273.15 + 15;
+        Twall = 273.15 + 13;
+        d_t = 1.5;
     end
     
 end

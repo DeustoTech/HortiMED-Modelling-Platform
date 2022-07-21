@@ -13,12 +13,12 @@ function Y = parseFruit(Crop,Fruits,tout)
            sub_names = fieldnames(st);
            for j = sub_names'
                if isa(st.(j{:}),'timeseries')
-                    Y.((i{:})+"_"+(j{:})) = perm(st.(j{:}).Data,Nt);
+                    Y.((i{:})+"__"+(j{:})) = perm(st.(j{:}).Data,Nt);
                     
                else
                    sub_sub_names = fieldnames(st.(j{:}));
                     for k = sub_sub_names'
-                        Y.((i{:})+"_"+(j{:})+"_"+(k{:})) = perm(st.(j{:}).(k{:}).Data,Nt);
+                        Y.((i{:})+"__"+(j{:})+"__"+(k{:})) = perm(st.(j{:}).(k{:}).Data,Nt);
                     end
                end
            end
@@ -30,7 +30,7 @@ function Y = parseFruit(Crop,Fruits,tout)
        if nrows>1
           Z =  Y.(ivar{:});
           for irow = 1:nrows
-            Y.(ivar{:}+"_"+irow) = Z(:,irow);
+            Y.(ivar{:}+"__"+irow) = Z(:,irow);
           end
           Y = rmfield(Y,ivar{:});
        end

@@ -63,6 +63,10 @@ classdef crop_p
         C_wv = 0.2;
         N = 1e-5*[0 0 0 0 0 0 0 0]';
         
+        VelocityAbsortion = 1e-1;
+        %tinit = 1;
+        %tend = 10;
+        
     end
 
     methods

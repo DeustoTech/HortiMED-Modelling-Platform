@@ -1,4 +1,4 @@
-function Y = parseSubstrate(X,tout)
+function Y = parseSubstrate_csv(X,tout)
 
     Nt = length(tout);
     names = fieldnames(X.Values);
@@ -13,12 +13,12 @@ function Y = parseSubstrate(X,tout)
            sub_names = fieldnames(st);
            for j = sub_names'
                if isa(st.(j{:}),'timeseries')
-                    Y.((i{:})+"_"+(j{:})) = perm(st.(j{:}).Data,Nt);
+                    Y.((i{:})+"__"+(j{:})) = perm(st.(j{:}).Data,Nt);
                     
                else
                    sub_sub_names = fieldnames(st.(j{:}));
                     for k = sub_sub_names'
-                        Y.((i{:})+"_"+(j{:})+"_"+(k{:})) = perm(st.(j{:}).(k{:}).Data,Nt);
+                        Y.((i{:})+"__"+(j{:})+"__"+(k{:})) = perm(st.(j{:}).(k{:}).Data,Nt);
                     end
                end
            end
@@ -26,16 +26,23 @@ function Y = parseSubstrate(X,tout)
     end
     
     
-        for ivar = fieldnames(Y)'
+   
+    iter = 0;
+    fn = fieldnames(Y)';
+    X = [];
+    for ivar = fn
+       iter = iter + 1;
        nrows = size(Y.(ivar{:}),2);
        if nrows>1
           Z =  Y.(ivar{:});
           for irow = 1:nrows
-            Y.(ivar{:}+"_"+irow) = Z(:,irow);
+            X.(ivar{:}+"_"+irow) = Z(:,irow);
           end
-          Y = rmfield(Y,ivar{:});
+       else
+           X.(ivar{:}) = Y.(ivar{:});
        end
     end
+    Y = X;
 end
 
 function Y = perm(X,Nt) 

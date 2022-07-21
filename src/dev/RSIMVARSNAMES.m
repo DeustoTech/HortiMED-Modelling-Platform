@@ -62,7 +62,7 @@ BuildBusFlow;
 
 open_system('test08')
 %set_param('test08','StopTime','tspan(end)')
-set_param('test08','StopTime','10')
+set_param('test08','StopTime','110')
 
 set_param('test08','SimulationMode','normal')
 
@@ -157,12 +157,20 @@ Subs_1_st = parseSubstrate_csv(Subs_1,tout);
 Subs_1_st = struct2table(Subs_1_st);
 SUBS_NAMES = Subs_1_st.Properties.VariableNames;
 
-
-save('data/RSIM_VARS_NAMES.mat','INDOOR_NAMES','CONTROL_NAMES','CROP_NAMES','SUBS_NAMES')
+%%
+pathfile = which('HORTISIM');
+pathfile = replace(pathfile,'HORTISIM.slx','');
+pathfile = fullfile(pathfile,'data','RSIM_VARS_NAMES.mat');
+%%
+save(pathfile,'INDOOR_NAMES','CONTROL_NAMES','CROP_NAMES','SUBS_NAMES')
 %
 %%
 
-dataset = [IC_st Control_IC_st Crop1_st Fruit_st Subs_1_st ];
+%%
+OC_st = parseIndoorClimate_csv(OC,tout);
+OC_st = struct2table(OC_st);
+
+dataset = [IC_st Control_IC_st Crop1_st Fruit_st Subs_1_st OC_st];
 dataset.DateTime = rdate;
 
 %%
@@ -177,9 +185,14 @@ end
 %%
 new_dataset = struct2table(new_dataset);
 
+%%
+select_ds = new_dataset(:,[145 144 143 142 141 140 1:4 5 10 13 14 15 16 17 41 42 45 49 50 51 52 56  57 58 59 61 62  90 ]);
+%%
+writetable(select_ds,'ds.csv')
+%%
+%writetable(new_dataset,'dataset.csv')
 
 %%
-writetable(new_dataset,'dataset.csv')
-
-%%
+OC_st = parseIndoorClimate_csv(OC,tout);
+OC_st = struct2table(OC_st);
 

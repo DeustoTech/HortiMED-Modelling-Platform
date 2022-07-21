@@ -35,7 +35,7 @@ classdef climate_p
         T_ss   = 12.0 + 273.15; %deep soil temperature [K]
 
         T0 = 273.15 + [14 14 14 14]';
-        G0 = [0.0500 7.0738e-04]';
+        G0 = [0.00500 7.0738e-04]';
         hour0 = 1;
 
     end
