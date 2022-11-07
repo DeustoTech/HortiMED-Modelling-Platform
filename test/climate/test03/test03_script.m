@@ -53,4 +53,4 @@ ICplots_test03(rdate,IC_st,OC_st,CC_st,win_p,win_com_st)
 main_folder = which('HORTISIM.slx');
 main_folder = replace(main_folder,'HORTISIM.slx','');
 %%
-save(fullfile(main_folder,'test','test03','test03_ws.mat'))
+save(fullfile(main_folder,'test','climate','test03','test03_ws.mat'))

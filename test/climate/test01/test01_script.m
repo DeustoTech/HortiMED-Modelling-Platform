@@ -13,8 +13,6 @@ climate.time = tspan;
 
 %% Initializate Parametes of model 
 clima1var = climate_p;
-%% Initializate initial conditions of model 
-clima1ic    = climate_ic;
 %% Execute model
 open_system('test01');
 set_param('test01','StopTime','10')

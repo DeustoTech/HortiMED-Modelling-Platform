@@ -42,7 +42,7 @@ set_param('test10','SimulationMode','accelerator')
 set_param('test10','StopTime',num2str(ndays))
 
 %% Initializate initial conditions of model 
-cic    = climate_ic;
+%cic    = climate_ic;
 %%
 hws = get_param('test10', 'modelworkspace');
 

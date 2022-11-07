@@ -7,8 +7,9 @@ test_path = fullfile(main_path,"test/"+"climate");
 
 %% files 
 r = dir(test_path);
-
-for ir = r'
+%%
+nstart = 4;
+for ir = r(nstart:end)'
     pause(2)
     if (contains(ir.name,'test').*ir.isdir)
         try 
