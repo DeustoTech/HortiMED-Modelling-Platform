@@ -1,4 +1,4 @@
-function set_params_block(path_block,structure)
+function set_params_block(path_block,structure,varargin)
 % 
 % Esta funcion cambia el nombre de los parametros de un bloque simulink de
 % la libreria HORTISIM. De manera que path_block nos identifica el bloque
@@ -15,8 +15,19 @@ function set_params_block(path_block,structure)
 % Autor: Deyviss Jesus Oroya
 % --------------------------------
 %%
+p = inputParser();
 
-name = inputname(2);
+addRequired(p,'path_block')
+addRequired(p,'structure')
+addOptional(p,'name_variable',[])
+
+parse(p,path_block,structure,varargin{:});
+
+if isempty(p.Results.name_variable)
+    name = inputname(2);
+else
+    name = p.Results.name_variable;
+end
 
 params = get_param(path_block,'DialogParameters');
 for i = fieldnames(params)'
