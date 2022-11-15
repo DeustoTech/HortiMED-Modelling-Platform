@@ -1,5 +1,6 @@
 
 clear
+
 %load('src/data/CS3_1_Sysclima.mat')
 load('CS3_7_all_cum_production.mat')
 
@@ -56,19 +57,23 @@ params_fruit = fruit_p;
 %% Initializate Substrate
 substrate_params = substrate_p;
 %x0_substrate = substrate_ic;
+%%
+tp_GH1_bio = tank_p;
+
+
 %% We use a non virtual buses in flow 
 BuildBusFlow;
 %% Execute model
 
-open_system('test08')
-%set_param('test08','StopTime','tspan(end)')
-set_param('test08','StopTime','110')
+open_system('testall')
+%set_param('testall','StopTime','tspan(end)')
+set_param('testall','StopTime','2')
 
-set_param('test08','SimulationMode','normal')
+set_param('testall','SimulationMode','normal')
 
 tic
 
-r = sim('test08');
+r = sim('testall');
 toc
 %% build the date span from tspan pf simulation 
 tout = r.tout;
@@ -105,6 +110,12 @@ Substrate_st = parseSubstrate(Substrate,tout);
 %% Irrigation
 Irrigation = r.logsout.getElement('Ferti');
 Irrigation_st = parseFertirrigation(Irrigation,tout);
+%%
+Fish = r.logsout.getElement('Fish');
+Fish_st = parseFertirrigation(Fish,tout);
+%%
+WT = r.logsout.getElement('Water Tank');
+WT_st = parseFertirrigation(WT,tout);
 %% see results
 figure(1)
 clf
@@ -114,7 +125,7 @@ fig = figure(1);
 %fig.Units = 'norm';
 %fig.Position = [0 0 0.5 0.7];
 clf
-ICplots_test08_b(rdate,IC_st,OC_st,CC_st,Crop_st,Fruit,ds_crop,crop_p)
+%ICplots_testall_b(rdate,IC_st,OC_st,CC_st,Crop_st,Fruit,ds_crop,crop_p)
 
 %%
 fig = figure(1);
@@ -158,11 +169,22 @@ Subs_1_st = struct2table(Subs_1_st);
 SUBS_NAMES = Subs_1_st.Properties.VariableNames;
 
 %%
+Tank = r.logsout.getElement('Water Tank');
+Tank_st = parseSubstrate_csv(Tank,tout);
+Tank_st = struct2table(Tank_st);
+TANK_NAMES = Tank_st.Properties.VariableNames;
+%%
+Fish = r.logsout.getElement('Fish');
+Fish_st = parseSubstrate_csv(Fish,tout);
+Fish_st = struct2table(Fish_st);
+FISH_NAMES = Fish_st.Properties.VariableNames;
+
+%%
 pathfile = which('HORTISIM');
 pathfile = replace(pathfile,'HORTISIM.slx','');
 pathfile = fullfile(pathfile,'data','RSIM_VARS_NAMES.mat');
 %%
-save(pathfile,'INDOOR_NAMES','CONTROL_NAMES','CROP_NAMES','SUBS_NAMES')
+save(pathfile,'INDOOR_NAMES','CONTROL_NAMES','CROP_NAMES','SUBS_NAMES','TANK_NAMES','FISH_NAMES')
 %
 %%
 
