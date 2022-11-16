@@ -1,4 +1,4 @@
-function ds_climate = parseFish_matrix(climate_matrix)
+function ds_climate = parseSubstrate_matrix(climate_matrix)
 
 load('RSIM_VARS_NAMES.mat')
 %%

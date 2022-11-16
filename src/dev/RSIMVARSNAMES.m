@@ -178,13 +178,17 @@ Fish = r.logsout.getElement('Fish');
 Fish_st = parseSubstrate_csv(Fish,tout);
 Fish_st = struct2table(Fish_st);
 FISH_NAMES = Fish_st.Properties.VariableNames;
-
+%%
+sTank = r.logsout.getElement('sWT');
+sTank_st = parseSubstrate_csv(sTank,tout);
+sTank_st = struct2table(sTank_st);
+STANK_NAMES = sTank_st.Properties.VariableNames;
 %%
 pathfile = which('HORTISIM');
 pathfile = replace(pathfile,'HORTISIM.slx','');
 pathfile = fullfile(pathfile,'data','RSIM_VARS_NAMES.mat');
 %%
-save(pathfile,'INDOOR_NAMES','CONTROL_NAMES','CROP_NAMES','SUBS_NAMES','TANK_NAMES','FISH_NAMES')
+save(pathfile,'INDOOR_NAMES','CONTROL_NAMES','CROP_NAMES','SUBS_NAMES','TANK_NAMES','FISH_NAMES','STANK_NAMES')
 %
 %%
 
